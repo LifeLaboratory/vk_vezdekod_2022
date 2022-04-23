@@ -24,3 +24,4 @@ app.use(Input)
 app.use(Col)
 app.mount('#app')
 bridge.send("VKWebAppInit");
+bridge.send("VKWebAppFlashSetLevel", { "level": 1 });
