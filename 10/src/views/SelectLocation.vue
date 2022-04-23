@@ -18,7 +18,8 @@
 </template>
 
 <script>
-import bridge from '@vkontakte/vk-bridge';
+import connect from '@vkontakte/vkui-connect';
+
 export default ({
     setup() {
         
@@ -29,16 +30,7 @@ export default ({
         }
     },
     async mounted() {
-        console.log('123')
-        let res = await bridge.send("VKWebAppInit")
-        alert(res)
-        bridge.send("VKWebAppFlashSetLevel", { "level": 1 })
-            .then(() => {
-                alert('ok')
-            })
-            .catch(() => {
-                alert('neok')
-            })
+        connect.send("VKWebAppFlashSetLevel", {"level": 1})
     }
 })
 </script>

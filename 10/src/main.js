@@ -8,6 +8,8 @@ import 'ant-design-vue/es/message/style/css'
 import { Card, Row, Col, Button, Input, Form } from 'ant-design-vue';
 import VueCountdown from '@chenfengyuan/vue-countdown';
 import Countdown from 'vue3-flip-countdown'
+import connect from '@vkontakte/vkui-connect';
+connect.send('VKWebAppInit', {});
 
 const app = createApp(App);
 
