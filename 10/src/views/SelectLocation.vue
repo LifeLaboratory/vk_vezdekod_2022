@@ -4,7 +4,7 @@
             Добро пожаловать в игру! <br/>
             Ознакомтесь с локациями в игре:
         </div>
-        <a-row :gutter="[16,16]" type="flex" justify="center" align="top">
+        <!-- <a-row :gutter="[16,16]" type="flex" justify="center" align="top">
             <a-col v-for="(el, key) in 10" :key=key>
                 <a-card hoverable style="width: 340px">
                     <template #cover>
@@ -12,7 +12,7 @@
                     </template>
                 </a-card>
             </a-col>
-        </a-row>
+        </a-row> -->
     </div>
 </template>
 
