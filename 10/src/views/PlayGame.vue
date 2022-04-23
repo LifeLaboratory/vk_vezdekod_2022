@@ -29,7 +29,7 @@
         </template>
         <template v-else-if="statusGame === 3">
             <div class="white_text">
-                <div  v-if="new Date() < actualTimer.value">
+                <div v-if="new Date() < actualTimer">
                     Рыба - карась, игра началась !!!
                     <br>
                     Времечко тикает:
@@ -39,7 +39,7 @@
                 </div>
                  <br>
                   <br>
-                <vue3-flip-countdown v-if="new Date() < actualTimer.value" :showDays="false" :showHours="false" :labels="{minutes: 'Минуты',seconds: 'Секунды',}" :deadlineDate="actualTimer" />
+                <vue3-flip-countdown v-if="new Date() < actualTimer" :showDays="false" :showHours="false" :labels="{minutes: 'Минуты',seconds: 'Секунды',}" :deadlineDate="actualTimer" />
                 <a-button v-else @click="goTo('startGame')">Играть еще раз</a-button>
                 
             </div>
@@ -67,7 +67,7 @@ export default defineComponent({
         let actualUser = ref({})
         let makeShowRole = ref(false)
         let actualRound = ref(randomInteger(1, 20))
-        let actualTimer = ref()
+        let actualTimer = ref(new Date())
         const nextPlayer = () => {
             if (activeUsers.value.length > 0) {
                 const randomInt = randomInteger(0, activeUsers.value.length - 1)
@@ -81,7 +81,7 @@ export default defineComponent({
                 console.log('2', d)
                 actualTimer.value = d
                 console.log('33', d)
-                console.log('3',actualTimer)
+                console.log('3--',actualTimer.value)
                 changeStatus(3)
                 setInterval(() => {
                     if(!new Date() < actualTimer.value) {
