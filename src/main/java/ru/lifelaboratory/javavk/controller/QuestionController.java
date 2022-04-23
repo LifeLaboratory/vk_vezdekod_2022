@@ -4,9 +4,11 @@ import org.springframework.web.bind.annotation.*;
 import ru.lifelaboratory.javavk.entity.Answer;
 import ru.lifelaboratory.javavk.entity.Question;
 import ru.lifelaboratory.javavk.entity.Response;
+import ru.lifelaboratory.javavk.jService.API;
 import ru.lifelaboratory.javavk.repository.QuestionRepository;
 
 import java.util.Optional;
+import java.util.Random;
 
 @RestController
 @RequestMapping(value = "question")
@@ -20,7 +22,7 @@ public class QuestionController {
 
     @GetMapping("/random")
     private Response getRandom() {
-        Question question = questionRepository.findRandom();
+        Question question = (new Random()).nextBoolean() ? questionRepository.findRandom() : API.getRandomQuestion();
         question.setAnswer(null);
         return new Response(question);
     }
