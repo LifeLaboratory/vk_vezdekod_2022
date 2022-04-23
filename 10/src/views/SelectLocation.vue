@@ -22,7 +22,7 @@
         font-weight: 600;
         color: white;
         padding-bottom: 20px;
-        font-size: 40px;
+        font-size: 35px;
     }
 </style>
 
@@ -33,7 +33,14 @@
         border-radius: 12px;
         width: 40%;
         height: 100vh;
-        overflow: auto;
+        overflow-y: auto;
+        overflow-x: hidden;
         margin: auto;
+    }
+
+    @media (max-width: 900px) {
+        .box {
+            width: 100%;
+        }
     }
 </style>

@@ -5,9 +5,13 @@
 <style>
 body {
     background-image: url("/img/icons/bg.jpeg");
-    background-size: 100% 100%;
-    background-repeat: no-repeat, no-repeat;
-    background-color: #cccccc;
+    background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 #app {
