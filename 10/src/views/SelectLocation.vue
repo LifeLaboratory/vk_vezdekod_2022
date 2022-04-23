@@ -30,7 +30,7 @@ export default ({
         }
     },
     async mounted() {
-        connect.send("VKWebAppFlashSetLevel", {"level": 1})
+        await connect.send("VKWebAppFlashSetLevel", {"level": 1})
     }
 })
 </script>
