@@ -15,14 +15,16 @@ import java.util.Random;
 public class QuestionController {
 
     private final QuestionRepository questionRepository;
+    private final API jServiceAPI;
 
-    public QuestionController(QuestionRepository questionRepository) {
+    public QuestionController(QuestionRepository questionRepository, API jServiceAPI) {
         this.questionRepository = questionRepository;
+        this.jServiceAPI = jServiceAPI;
     }
 
     @GetMapping("/random")
     private Response getRandom() {
-        Question question = (new Random()).nextBoolean() ? questionRepository.findRandom() : API.getRandomQuestion();
+        Question question = (new Random()).nextBoolean() ? questionRepository.findRandom() : jServiceAPI.getRandomQuestion();
         question.setAnswer(null);
         return new Response(question);
     }
@@ -30,12 +32,12 @@ public class QuestionController {
     @PostMapping("/check")
     private Response checkResponse(@RequestBody Answer answer) {
         Optional<Question> findResult = questionRepository.findById(answer.getQuestionId());
-        if (findResult.isEmpty()) {
+        Question question = findResult.isEmpty() ? jServiceAPI.findById(answer.getQuestionId()) : findResult.get();
+        if (question == null || question.getAnswer() == null) {
             Response response = new Response();
             response.setValidationError("Not found");
             return response;
         }
-        Question question = findResult.get();
         answer.setIsCorrect(question.getAnswer().equals(answer.getAnswer()));
         answer.setCorrectAnswer(question.getAnswer());
         answer.setAnswer(null);
