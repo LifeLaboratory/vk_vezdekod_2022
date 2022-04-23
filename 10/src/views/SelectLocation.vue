@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import bridge from '@vkontakte/vk-bridge';
 export default ({
     setup() {
         
@@ -26,6 +27,18 @@ export default ({
         submit() {
             this.$router.push('startGame')
         }
+    },
+    async mounted() {
+        console.log('123')
+        let res = await bridge.send("VKWebAppInit")
+        alert(res)
+        bridge.send("VKWebAppFlashSetLevel", { "level": 1 })
+            .then(() => {
+                alert('ok')
+            })
+            .catch(() => {
+                alert('neok')
+            })
     }
 })
 </script>
