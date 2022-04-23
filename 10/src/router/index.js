@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import SelectLocation from '../views/SelectLocation.vue'
+import StartGame from '../views/StartGame.vue'
+import PlayGame from '../views/PlayGame.vue'
 
 const routes = [
   {
@@ -8,12 +10,20 @@ const routes = [
     component: SelectLocation
   },
   {
-    path: '/about',
-    name: 'About',
+    path: '/startGame',
+    name: 'startGame',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: StartGame
+  },
+  {
+    path: '/playGame',
+    name: 'playGame',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: PlayGame
   }
 ]
 
