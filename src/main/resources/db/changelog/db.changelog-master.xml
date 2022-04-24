@@ -23,6 +23,15 @@
             </column>
             <column name="name"  type="VARCHAR(255)"/>
         </createTable>
+        <createTable tableName="game">
+            <column autoIncrement="true" name="id"  type="BIGINT">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="count_questions"  type="NUMBER"/>
+            <column name="min_difficulty"  type="NUMBER"/>
+            <column name="max_difficulty"  type="NUMBER"/>
+            <column name="questions_id"  type="TEXT"/>
+        </createTable>
         <loadData tableName="category" file="db/changelog/category.csv" separator="," />
         <loadData tableName="question" file="db/changelog/question.csv" separator="," />
     </changeSet>
