@@ -33,7 +33,7 @@ FROM game g
 left join person p using(id_person)
 LEFT JOIN question q ON q.id_question = g.id_question
 LEFT JOIN event_to_game etg ON (etg.id_game = g.id_game and etg.round <= g.round)
-LEFT JOIN event e on etg.id_event = e.id_event and e.tags && q.tags
+LEFT JOIN event e on etg.id_event = e.id_event
 WHERE g.status = True and g.id_user = {id_user}
 ORDER BY etg.id_event_to_game ASC
 LIMIT 1
