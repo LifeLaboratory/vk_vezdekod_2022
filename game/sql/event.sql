@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS public.event
   id_event integer NOT NULL DEFAULT nextval('event_id_event_seq'::regclass),
   description text,
   id_session text,
+  round int DEFAULT 1,
   CONSTRAINT event_pk PRIMARY KEY (id_event)
 )
 WITH (
