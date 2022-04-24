@@ -1,0 +1,23 @@
+insert into
+question_history
+(
+id_user,
+id_question,
+id_game,
+date_time_solve,
+answer,
+health,
+point,
+money
+)
+values
+(
+{id_user},
+{id_question},
+{id_game},
+now(),
+{answer},
+{health},
+{point},
+{money}
+)
