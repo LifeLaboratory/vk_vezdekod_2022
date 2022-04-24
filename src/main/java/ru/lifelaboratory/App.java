@@ -11,16 +11,14 @@ import com.vk.api.sdk.objects.messages.Message;
 import com.vk.api.sdk.objects.photos.Photo;
 import com.vk.api.sdk.queries.messages.MessagesGetLongPollHistoryQuery;
 
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 class App {
 
     public static void main(String[] args) throws ApiException, ClientException, InterruptedException {
         TransportClient transportClient = new HttpTransportClient();
         VkApiClient vk = new VkApiClient(transportClient);
+        Map<Integer, Integer> userWord = new HashMap<>();
 
         GroupActor actor = new GroupActor(212881098, "6bec718902959df1c1db2a96f16d4e3d5ab46d798af5b02a60e4768c6011112ec55b9cc9f22eefbe58902");
         Integer ts = vk.messages().getLongPollServer(actor).execute().getTs();
@@ -36,19 +34,50 @@ class App {
                 if (message.getText().equals("Старт")) {
                     try {
                         Collections.shuffle(photoAlbum);
-                        List<Integer> tmp = new LinkedList<>();
+                        String strForAttachment = "";
                         for (int i = 0; i < 5; i++) {
-                            tmp.add(photoAlbum.get(i).getId());
+                            strForAttachment += "photo-212881098_" + photoAlbum.get(i).getId() + ",";
                         }
                         vk.messages()
                                 .send(actor)
                                 .userId(message.getFromId())
                                 .randomId(random.nextInt(1000))
-                                .attachment("photo-212881098_" + tmp.get(0)
-                                        + ",photo-212881098_" + tmp.get(1)
-                                        + ",photo-212881098_" + tmp.get(2)
-                                        + ",photo-212881098_" + tmp.get(3)
-                                        + ",photo-212881098_" + tmp.get(4))
+                                .attachment(strForAttachment.substring(0, strForAttachment.length() - 1))
+                                .execute();
+
+                        int randomNumberOfImage = random.nextInt(5);
+                        String[] randomImage = photoAlbum.get(randomNumberOfImage).getText().split(" ");
+                        String word = randomImage[random.nextInt(randomImage.length)];
+                        vk.messages()
+                                .send(actor)
+                                .userId(message.getFromId())
+                                .randomId(random.nextInt(1000))
+                                .message(word)
+                                .execute();
+
+                        userWord.put(message.getFromId(), randomNumberOfImage + 1);
+                    } catch (ApiException | ClientException e) {
+                        throw new RuntimeException(e);
+                    }
+                } else if (userWord.containsKey(message.getFromId()) && userWord.get(message.getFromId()).toString().equals(message.getText())) {
+                    try {
+                        vk.messages()
+                                .send(actor)
+                                .userId(message.getFromId())
+                                .randomId(random.nextInt(1000))
+                                .message("+3 очка")
+                                .execute();
+                    } catch (ApiException | ClientException e) {
+                        throw new RuntimeException(e);
+                    }
+                    userWord.remove(message.getFromId());
+                } else if (userWord.containsKey(message.getFromId())) {
+                    try {
+                        vk.messages()
+                                .send(actor)
+                                .userId(message.getFromId())
+                                .randomId(random.nextInt(1000))
+                                .message("+0 очков")
                                 .execute();
                     } catch (ApiException | ClientException e) {
                         throw new RuntimeException(e);
