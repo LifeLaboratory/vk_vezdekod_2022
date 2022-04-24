@@ -9,6 +9,9 @@ CREATE TABLE IF NOT EXISTS public.event
   description text,
   id_session text,
   round int DEFAULT 1,
+  health double precision DEFAULT -5,
+  point double precision DEFAULT 5,
+  money double precision DEFAULT -4,
   CONSTRAINT event_pk PRIMARY KEY (id_event)
 )
 WITH (

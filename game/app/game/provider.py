@@ -95,11 +95,11 @@ table active_event
         self.query = f'''
 update game
 set 
-  health = coalesce(health, 0) + coalesce({event.get('health')}::int, 0)
-  , money = coalesce(money, 0) + coalesce({event.get('money')}::int, 0)
+  health = coalesce(health, 0) + coalesce({event.get('health') or 0}::int, 0)
+  , money = coalesce(money, 0) + coalesce({event.get('money') or 0}::int, 0)
   , point = 
-    case when coalesce(point, 0) + coalesce({event.get('point')}::int, 0) >= 0
-      then coalesce(point, 0) + coalesce({event.get('point')}::int, 0)
+    case when coalesce(point, 0) + coalesce({event.get('point') or 0}::int, 0) >= 0
+      then coalesce(point, 0) + coalesce({event.get('point') or 0}::int, 0)
     else 0
     end
 where id_game = {event.get('id_game')}::int
