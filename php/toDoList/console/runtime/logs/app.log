@@ -1,0 +1,117 @@
+2022-04-24 14:03:55 [-][-][-][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\db\Connection.php:721
+Stack trace:
+#0 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\db\Connection.php(721): PDO->__construct()
+#1 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\db\Connection.php(636): yii\db\Connection->createPdoInstance()
+#2 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\db\Connection.php(1066): yii\db\Connection->open()
+#3 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\db\Connection.php(1053): yii\db\Connection->getMasterPdo()
+#4 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo()
+#5 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\db\Command.php(1163): yii\db\Command->prepare()
+#6 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\db\Command.php(410): yii\db\Command->queryInternal()
+#7 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\db\mysql\Schema.php(320): yii\db\Command->queryAll()
+#8 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\db\mysql\Schema.php(125): yii\db\mysql\Schema->findColumns()
+#9 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema()
+#10 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata()
+#11 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\console\controllers\MigrateController.php(211): yii\db\Schema->getTableSchema()
+#12 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(908): yii\console\controllers\MigrateController->getMigrationHistory()
+#13 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(183): yii\console\controllers\BaseMigrateController->getNewMigrations()
+#14 [internal function]: yii\console\controllers\BaseMigrateController->actionUp()
+#15 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array()
+#16 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\base\Controller.php(178): yii\base\InlineAction->runWithParams()
+#17 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\console\Controller.php(182): yii\base\Controller->runAction()
+#18 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\base\Module.php(552): yii\console\Controller->runAction()
+#19 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\console\Application.php(180): yii\base\Module->runAction()
+#20 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction()
+#21 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\base\Application.php(384): yii\console\Application->handleRequest()
+#22 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\yii(23): yii\base\Application->run()
+#23 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\db\Connection.php:647
+Stack trace:
+#0 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\db\Connection.php(1066): yii\db\Connection->open()
+#1 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\db\Connection.php(1053): yii\db\Connection->getMasterPdo()
+#2 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo()
+#3 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\db\Command.php(1163): yii\db\Command->prepare()
+#4 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\db\Command.php(410): yii\db\Command->queryInternal()
+#5 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\db\mysql\Schema.php(320): yii\db\Command->queryAll()
+#6 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\db\mysql\Schema.php(125): yii\db\mysql\Schema->findColumns()
+#7 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema()
+#8 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata()
+#9 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\console\controllers\MigrateController.php(211): yii\db\Schema->getTableSchema()
+#10 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(908): yii\console\controllers\MigrateController->getMigrationHistory()
+#11 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(183): yii\console\controllers\BaseMigrateController->getNewMigrations()
+#12 [internal function]: yii\console\controllers\BaseMigrateController->actionUp()
+#13 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array()
+#14 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\base\Controller.php(178): yii\base\InlineAction->runWithParams()
+#15 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\console\Controller.php(182): yii\base\Controller->runAction()
+#16 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\base\Module.php(552): yii\console\Controller->runAction()
+#17 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\console\Application.php(180): yii\base\Module->runAction()
+#18 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction()
+#19 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\vendor\yiisoft\yii2\base\Application.php(384): yii\console\Application->handleRequest()
+#20 C:\Users\Cheezus\Desktop\OpenServer\OpenServer\domains\localhost\toDoList\yii(23): yii\base\Application->run()
+#21 {main}
+Additional Information:
+
+2022-04-24 14:03:55 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'NUMBER_OF_PROCESSORS' => '4'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'PHP_COMMAND' => 'php.exe'
+    'PROMPT' => '$P$G'
+    'SESSIONNAME' => 'Console'
+    'COMPUTERNAME' => 'DESKTOP-VD8ILBQ'
+    'YII_PATH' => 'C:\\Users\\Cheezus\\Desktop\\OpenServer\\OpenServer\\domains\\localhost\\toDoList\\'
+    '__INTELLIJ_COMMAND_HISTFILE__' => 'C:\\Users\\Cheezus\\AppData\\Roaming\\JetBrains\\PhpStorm2020.1\\terminal\\history\\history-4'
+    'SystemDrive' => 'C:'
+    'LOGONSERVER' => '\\\\DESKTOP-VD8ILBQ'
+    'TERMINAL_EMULATOR' => 'JetBrains-JediTerm'
+    'TMP' => 'C:\\Users\\Cheezus\\AppData\\Local\\Temp'
+    'HOMEPATH' => '\\Users\\Cheezus'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'IDEA_INITIAL_DIRECTORY' => 'C:\\Users\\Cheezus\\Desktop'
+    'USERNAME' => 'Cheezus'
+    'ProgramFiles' => 'C:\\Program Files'
+    'USERDOMAIN_ROAMINGPROFILE' => 'DESKTOP-VD8ILBQ'
+    'LOCALAPPDATA' => 'C:\\Users\\Cheezus\\AppData\\Local'
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 61 Stepping 4, GenuineIntel'
+    'DriverData' => 'C:\\Windows\\System32\\Drivers\\DriverData'
+    'APPDATA' => 'C:\\Users\\Cheezus\\AppData\\Roaming'
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'USERDOMAIN' => 'DESKTOP-VD8ILBQ'
+    'PROCESSOR_LEVEL' => '6'
+    'ProgramData' => 'C:\\ProgramData'
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe'
+    'PROCESSOR_ARCHITECTURE' => 'AMD64'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'SystemRoot' => 'C:\\Windows'
+    'PROCESSOR_REVISION' => '3d04'
+    'TEMP' => 'C:\\Users\\Cheezus\\AppData\\Local\\Temp'
+    'PSModulePath' => 'C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules'
+    'Path' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\nodejs\\;C:\\Program Files\\Git\\cmd;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Cheezus\\Desktop\\OpenServer\\OpenServer\\modules\\php\\PHP_7.4;C:\\Users\\Cheezus\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Cheezus\\AppData\\Roaming\\npm;C:\\Users\\Cheezus\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'USERPROFILE' => 'C:\\Users\\Cheezus'
+    'windir' => 'C:\\Windows'
+    'ProgramW6432' => 'C:\\Program Files'
+    'OS' => 'Windows_NT'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'HOMEDRIVE' => 'C:'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'PHP_SELF' => 'C:\\Users\\Cheezus\\Desktop\\OpenServer\\OpenServer\\domains\\localhost\\toDoList\\yii'
+    'SCRIPT_NAME' => 'C:\\Users\\Cheezus\\Desktop\\OpenServer\\OpenServer\\domains\\localhost\\toDoList\\yii'
+    'SCRIPT_FILENAME' => 'C:\\Users\\Cheezus\\Desktop\\OpenServer\\OpenServer\\domains\\localhost\\toDoList\\yii'
+    'PATH_TRANSLATED' => 'C:\\Users\\Cheezus\\Desktop\\OpenServer\\OpenServer\\domains\\localhost\\toDoList\\yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1650798235.3476
+    'REQUEST_TIME' => 1650798235
+    'argv' => [
+        0 => 'C:\\Users\\Cheezus\\Desktop\\OpenServer\\OpenServer\\domains\\localhost\\toDoList\\yii'
+        1 => 'migrate'
+    ]
+    'argc' => 2
+]
