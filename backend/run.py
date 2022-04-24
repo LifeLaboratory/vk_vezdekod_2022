@@ -8,7 +8,7 @@ __author__ = 'Чусовитин А.Р.'
 
 class ImagesUserInterface:
     def __init__(self):
-        self.url = 'http://192.168.100.11:13452'
+        self.url = 'http://79.141.74.176:13455'
         self.is_admin = False
         self.current_image = None
         self.next_image = None
@@ -44,6 +44,8 @@ class ImagesUserInterface:
                     self.set_priority()
                 else:
                     break
+            if action == '4':
+                break
 
     def get_memes(self):
         id_image = input('''
