@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS public.event_to_game
   id_event integer,
   id_game integer,
   round integer,
-  CONSTRAINT event_pk PRIMARY KEY (id_event_to_game)
+  CONSTRAINT id_event_to_game_pk PRIMARY KEY (id_event_to_game)
 )
 WITH (
   OIDS=FALSE
