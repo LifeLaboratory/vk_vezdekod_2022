@@ -21,7 +21,7 @@ class ImagesUserInterface:
         while True:
             memes = loads(get(f'{self.url}/list/{self.limit}/{offset}').text)
             for mem in memes.get('Мемы'):
-                print(f'''Мем ID({mem.get('id_image')}) от автора "{mem.get('author')} собрал {mem.get('likes')} лайков. Мем можно посмотреть по ссылке {mem.get('link')}"''')
+                print(f'''\nМем ID({mem.get('id_image')}) от автора "{mem.get('author')} собрал {mem.get('likes')} лайков. Мем можно посмотреть по ссылке:\n {mem.get('link')}"''')
             print(self.is_admin)
             action = input('''
 Показать следующие мемы?
@@ -59,11 +59,10 @@ class ImagesUserInterface:
             ord = None
             for mem in memes:
                 print(
-                    f'''Мем ID({mem.get('id_image')}) от автора "{mem.get('author')} собрал {mem.get('likes')} лайков. Мем можно посмотреть по ссылке {mem.get('link')}"''')
+                    f'''\nМем ID({mem.get('id_image')}) от автора "{mem.get('author')} собрал {mem.get('likes')} лайков. Мем можно посмотреть по ссылке:\n {mem.get('link')}"''')
                 next_image = mem.get('next_image')
                 prev_image = mem.get('prev_image')
                 ord = mem.get('ord')
-            print(ord)
             action = '5'
             if self.is_admin:
                 if prev_image:
@@ -126,15 +125,15 @@ class ImagesUserInterface:
             statistic = loads(get(f'{self.url}/statistic').text)
             print('\n\nТоп по Like:')
             for mem in statistic.get('images'):
-                print(f'''Мем ID({mem.get('id_image')}) от автора "{mem.get('author')} собрал {mem.get('likes')} лайков. Мем можно посмотреть по ссылке {mem.get('link')}"''')
+                print(f'''\nМем ID({mem.get('id_image')}) от автора "{mem.get('author')} собрал {mem.get('likes')} лайков. Мем можно посмотреть по ссылке:\n {mem.get('link')}"''')
             print('Последние события:')
             for mem in statistic.get('history'):
                 print(mem.get("История"))
             print('Для выхода нажми q')
             keyboard.start_recording()
-            sleep(2)
+            sleep(1)
             events = keyboard.stop_recording()
-            if keyboard.is_pressed('q'):
+            if [key.name for key in events if key.name == 'q']:
                 break
 
     def put_priority(self, id_image):
@@ -168,8 +167,7 @@ class ImagesUserInterface:
             '2': self.get_memes,
             '3': self.get_statistic,
             '4': self.set_priority,
-            '5': self.choise_user_mode,
-            '6': exit
+            '5': self.choise_user_mode
         }
         action = input(f"""
 Вы авторизованы как администратор
@@ -184,14 +182,15 @@ class ImagesUserInterface:
         if action in choise_action:
             choise_action.get(action)()
         else:
+            if action == '6':
+                raise
             print("Вы не правильно выбираете, попробуйте еще раз")
 
     def user_panel(self):
         choise_action = {
             '1': self.get_list_memes,
             '2': self.get_memes,
-            '3': self.choise_user_mode,
-            '4': exit
+            '3': self.choise_user_mode
         }
         action = input(f"""
 Вы авторизованы как пользователь
@@ -204,6 +203,8 @@ class ImagesUserInterface:
         if action in choise_action:
             choise_action.get(action)()
         else:
+            if action == '4':
+                raise
             print("Вы не правильно выбираете, попробуйте еще раз")
 
     def choise_user_mode(self):
@@ -217,6 +218,10 @@ class ImagesUserInterface:
     def main(self):
         self.choise_user_mode()
         while True:
-            self.admin_panel() if self.is_admin else self.user_panel()
+            try:
+                self.admin_panel() if self.is_admin else self.user_panel()
+            except:
+                break
+
 
 ImagesUserInterface().main()
