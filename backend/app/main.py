@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
-from flask import request, jsonify, make_response
+from flask import jsonify
 from source.processor import Processor
 from flask import Flask
-from source.helper import main
 
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
@@ -41,5 +40,4 @@ def statistic():
 
 
 if __name__ == "__main__":
-    main()
     app.run(host='0.0.0.0', debug=False, port=13452)
