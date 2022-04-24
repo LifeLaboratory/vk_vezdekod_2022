@@ -13,6 +13,7 @@ services:
         max-file: "3"
     volumes:
       - ./sql/event.sql:/docker-entrypoint-initdb.d/event.sql
+      - ./sql/event_to_game.sql:/docker-entrypoint-initdb.d/event_to_game.sql
       - ./sql/game.sql:/docker-entrypoint-initdb.d/game.sql
       - ./sql/person.sql:/docker-entrypoint-initdb.d/person.sql
       - ./sql/question.sql:/docker-entrypoint-initdb.d/question.sql
