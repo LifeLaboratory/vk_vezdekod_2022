@@ -9,6 +9,8 @@ import ru.lifelaboratory.javavk.jService.API;
 import ru.lifelaboratory.javavk.repository.GameRepository;
 import ru.lifelaboratory.javavk.repository.QuestionRepository;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Random;
 
 @RestController
@@ -66,6 +68,23 @@ public class GameController {
         answer.setCorrectAnswer(question.getAnswer());
         answer.setAnswer(null);
         return new Response(answer);
+    }
+
+    @PostMapping("/{game_id}/finish")
+    private Response checkResponse(@PathVariable("game_id") Long gameId) {
+        Game game = gameRepository.findById(gameId).get();
+        List<Answer> answers = new LinkedList<>();
+        for (int i = 0; i < game.getCountQuestions(); i++) {
+            Question question = questionRepository.findById(game.getQuestionIdByPosition(i)).isPresent() ?
+                    questionRepository.findById(game.getQuestionIdByPosition(i)).get()
+                    : jServiceAPI.findById(game.getQuestionIdByPosition(i));
+
+            Answer answer = new Answer();
+            answer.setCorrectAnswer(question.getAnswer());
+            answers.add(answer);
+        }
+
+        return new Response(answers);
     }
 
 }
