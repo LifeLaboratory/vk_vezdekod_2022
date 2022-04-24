@@ -12,11 +12,12 @@ CREATE TABLE IF NOT EXISTS public.game
   round integer DEFAULT 1,
   health double precision DEFAULT 10,
   food double precision DEFAULT 10,
-  leisure double precision DEFAULT 10,
+  money double precision DEFAULT 10,
   communication double precision DEFAULT 10,
   point integer DEFAULT 0,
   value integer DEFAULT 5,
   id_person integer,
+  status boolean,
   worked integer DEFAULT 0,
   call integer DEFAULT 0,
   CONSTRAINT game_pk PRIMARY KEY (id_game)

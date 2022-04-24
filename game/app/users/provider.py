@@ -80,7 +80,7 @@ game_history as (
          , time_close as time
          , round
          , coalesce(g.health, 0) as health
-         , coalesce(g.point, 0) as money
+         , coalesce(g.money, 0) as money
          , coalesce(g.point, 0) as point
          , p.pic
          , p.name
