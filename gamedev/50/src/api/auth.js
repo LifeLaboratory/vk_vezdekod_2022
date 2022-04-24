@@ -1,7 +1,7 @@
 const axios = require('axios')
 
 export function registerUser(data) {
-    return axios.post(`http://79.141.74.176:13454/api/user/register`, JSON.stringify(data),
+    return axios.post(`http://79.141.74.176:13454/api/user/register/`, JSON.stringify(data),
         {
             headers: {
                 'Content-Type': 'application/json'
@@ -17,7 +17,7 @@ export function registerUser(data) {
 }
 
 export function authUser(data) {
-    return axios.post(`http://79.141.74.176:13454/api/user/login`, JSON.stringify(data),
+    return axios.post(`http://79.141.74.176:13454/api/user/login/`, JSON.stringify(data),
         {
             headers: {
                 'Content-Type': 'application/json'
@@ -34,7 +34,7 @@ export function authUser(data) {
 }
 
 export function getPerson() {
-    return axios.get(`http://79.141.74.176:13454/api/person`)
+    return axios.get(`http://79.141.74.176:13454/api/person/`)
         .then(function (response) {
             return response.data
         })
@@ -45,7 +45,7 @@ export function getPerson() {
 }
 
 export function getRating() {
-    return axios.get(`http://79.141.74.176:13454/api/rating`,
+    return axios.get(`http://79.141.74.176:13454/api/rating/`,
         {
             headers: {
                 session: localStorage.getItem('session')
@@ -62,7 +62,7 @@ export function getRating() {
 }
 
 export function getProfile() {
-    return axios.get(`http://79.141.74.176:13454/api/user/profile`,
+    return axios.get(`http://79.141.74.176:13454/api/user/profile/`,
         {
             headers: {
                 session: localStorage.getItem('session')

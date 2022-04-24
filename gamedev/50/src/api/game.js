@@ -1,7 +1,7 @@
 const axios = require('axios')
 
 export function getGame (session) {
-  return axios.get(`http://79.141.74.176:13454/api/game`,
+  return axios.get(`http://79.141.74.176:13454/api/game/`,
     {
       headers: {
         session: session
@@ -17,7 +17,7 @@ export function getGame (session) {
 }
 
 export function newGame (session, id) {
-  return axios.post(`http://79.141.74.176:13454/api/game`,
+  return axios.post(`http://79.141.74.176:13454/api/game/`,
     JSON.stringify( {"id_person": id} ),
     {
       headers: {
@@ -35,7 +35,7 @@ export function newGame (session, id) {
 }
 
 export function sendAnswer (session, ans) {
-  return axios.post(`http://79.141.74.176:13454/api/game/question`,
+  return axios.post(`http://79.141.74.176:13454/api/game/question/`,
     JSON.stringify( {answer: ans} ),
     {
       headers: {
@@ -53,7 +53,7 @@ export function sendAnswer (session, ans) {
 }
 
 export function resumeGame (session) {
-  return axios.get(`http://79.141.74.176:13454/api/game`,
+  return axios.get(`http://79.141.74.176:13454/api/game/`,
     {
       headers: {
         session: session,
