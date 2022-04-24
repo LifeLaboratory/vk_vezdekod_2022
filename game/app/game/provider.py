@@ -23,7 +23,7 @@ SELECT
 , g.point::int4 point
 , p.pic::text as person_pic
 , CASE WHEN e.id_event is not null THEN
-  json_build_object('id_event', e.id_event, 'description', e.description, 'money', e.money, 'health', e.health, 'point', e.point, 'id_event_to_game', etg.id_event_to_game)::json
+  json_build_object('id_event', e.id_event, 'description', e.description, 'money', -1, 'health', -1, 'point', -1, 'id_event_to_game', etg.id_event_to_game)::json
 ELSE
   json_build_object()::json
 END as event
