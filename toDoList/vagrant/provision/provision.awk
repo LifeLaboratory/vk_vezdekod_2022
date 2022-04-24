@@ -44,7 +44,7 @@ BEGINFILE {
             # IF "allowedIPs" are not set - search for the end of an array structure
             } else if ($0 ~ /\];$/) {
                 # Rewrite line
-                $0 = nextLine["indent"] "'allowedIPs' => ['127.0.0.1', '::1', '" ip "'],\n" $0
+                $0 = nextLine["indent"] "'allowedIPs' => ['79.141.74.176', '::1', '" ip "'],\n" $0
                 delete nextLine
             }
             # IF line is done
