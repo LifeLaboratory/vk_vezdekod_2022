@@ -2,9 +2,11 @@
 
 -- DROP TABLE public.game;
 
+CREATE SEQUENCE IF NOT EXISTS game_id_game_seq START 1;
+
 CREATE TABLE IF NOT EXISTS public.game
 (
-  id_game integer NOT NULL,
+  id_game integer NOT NULL DEFAULT nextval('game_id_game_seq'::regclass),
   id_user integer NOT NULL,
   id_question integer NOT NULL DEFAULT 0,
   time_open timestamp without time zone DEFAULT now(),
