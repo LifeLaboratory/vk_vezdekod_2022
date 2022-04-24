@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS public.question
   description text,
   pic text,
   answer text,
+  good_answer integer,
   tags text[]
 )
 WITH (
