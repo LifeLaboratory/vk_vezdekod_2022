@@ -14,5 +14,5 @@ CREATE TABLE IF NOT EXISTS history (
     "id_history" integer DEFAULT nextval('history_id_history_seq') NOT NULL,
     "id_image" integer NOT NULL,
     "time_stamp" timestamp NOT NULL,
-    CONSTRAINT "history_pkey" PRIMARY KEY ("id_history")s
+    CONSTRAINT "history_pkey" PRIMARY KEY ("id_history")
 );
