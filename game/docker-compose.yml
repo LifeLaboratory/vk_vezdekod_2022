@@ -17,6 +17,7 @@ services:
       - ./sql/game.sql:/docker-entrypoint-initdb.d/game.sql
       - ./sql/person.sql:/docker-entrypoint-initdb.d/person.sql
       - ./sql/question.sql:/docker-entrypoint-initdb.d/question.sql
+      - ./sql/question_history.sql:/docker-entrypoint-initdb.d/question_history.sql
       - ./sql/session.sql:/docker-entrypoint-initdb.d/session.sql
       - ./sql/transaction.sql:/docker-entrypoint-initdb.d/transaction.sql
       - ./sql/users.sql:/docker-entrypoint-initdb.d/users.sql
